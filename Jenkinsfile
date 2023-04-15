@@ -30,14 +30,7 @@ pipeline{
                 }     
             }
         }
-	 stage ("push to dockerHub"){
-            steps{
-                withCredentials([usernamePassword(credentialsId: 'docker-credentials', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]) {
-                sh "docker login -u $USERNAME -p $PASSWORD"
-                sh 'docker push sukhanth/jenkinsfile_javvvva_k8s:latest'
-                }     
-            }
-        }
+
 		
 	stage ("Deploying image on minikube"){
             steps{
