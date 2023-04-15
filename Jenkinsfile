@@ -10,14 +10,14 @@ pipeline{
 			}
 		}
 		stage ("maven build 1"){
-            steps{
+            		steps{
                 sh 'cd productcatalogue'
                 sh 'mvn -f productcatalogue/pom.xml clean install package'
             }
         }
 		stage ("Docker image build"){
-            steps{
-                sh 'sudo docker build -t sukhanth/jenkinsfile_jaja_k8s:latest ./productcatalogue'
+         	   steps{
+             		   sh 'sudo docker build -t sukhanth/jenkinsfile_jaja_k8s:latest ./productcatalogue'
                 // sh '$images = sudo docker images'
                 // sh 'echo $images'
             }
