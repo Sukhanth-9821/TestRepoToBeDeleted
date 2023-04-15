@@ -37,7 +37,16 @@ pipeline{
                 sh 'docker push sukhanth/jenkinsfile_javvvva_k8s:latest'
                 }     
             }
-        }	
+        }
+		
+	stage ("Deploying image on minikube"){
+            steps{
+                script{
+                    kubernetesDeploy(configs: "deployment.yaml", kubeconfigId: "MINIKUBECONFIG")
+                }
+            
+            }
+        }		
 		
 	}
 
